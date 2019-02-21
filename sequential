@@ -1,0 +1,49 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <time.h>
+
+using namespace std;
+int search(int arr[], int n, int x) 
+{ 
+    int i; 
+    for (i = 0; i <n; i++) 
+        if (arr[i] == x) 
+            return i; 
+    return -1; 
+} 
+
+int main(){
+	//bobot (10-1000000 atau sampai error)
+	int size = 1000000000;
+	int* arr = new int [size];
+	
+	srand((unsigned)time(0));
+	
+	for (int i=0; i<size; i++){
+		//ganti sesuai bobot diatas
+		arr[i] = (rand()%10000000)+1;
+	//menampilkan / tidak
+	//	cout<<arr[i]<<" ";
+
+	}
+	//yg dicari 
+	int x = 78;
+		
+	clock_t t;
+	t = clock();
+	
+
+	int result = search(arr, size, x); 
+    (result == -1) ? cout << "\nElement is not present in array"
+                   : cout << "\nElement is present at index " << result;
+                   
+    t = clock() - t;
+	cout << "\ntime: " << t << " miliseconds" << endl;
+	cout << 1/1000 << " clocks per second" << endl;
+	cout << "time: " << t*1.0/1000 << " seconds" << endl;
+   
+    cout<<endl;
+	system("pause");
+	return 0;
+}
